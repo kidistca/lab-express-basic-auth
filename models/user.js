@@ -12,6 +12,9 @@ const authenticationSchema = new mongoose.Schema({
     passwordHash: {
         type: String,
         required: true
+    }, 
+    email: {
+        type: String
     }
 });
 

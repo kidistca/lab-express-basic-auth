@@ -72,7 +72,11 @@ router.post('/login', (req, res, next) => {
                 req.session.user = {
                     _id: auxiliaryUser._id
                 };
-                res.redirect('private');
+            const data = {
+                user1 : auxiliaryUser.userName,
+                 id: auxiliaryUser._id
+            };
+                res.render('profile', data);
             }
         })
         .catch(error => {
@@ -88,4 +92,26 @@ router.get('/private', (req, res, next) => {
 router.get('/main', (req, res, next) => {
     res.render('main');
 });
+
+router.get('/profile', (req, res, next) => {
+    res.render('profile');
+});
+
+router.get('/edit',(req, res, next) => {
+    res.render('edit');
+});
+
+router.post('/edit', (req, res, next) => {
+//    const userId = req.body.id;
+   const userName = req.body.username;
+   User.findByIdAndUpdate(userName, {
+       userName: req.body.username,
+       email: req.body.email
+   })
+   .then(()=>{
+        res.render('login');
+   });
+});
+
+
 module.exports = router;

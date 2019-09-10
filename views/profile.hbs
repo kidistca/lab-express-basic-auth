@@ -1,0 +1,31 @@
+
+<h3>Users Profile for {{user1}}</h3>
+<p><strong>UserName: </strong>{{user1}}</p>
+<p><strong>ID: </strong>{{id}}</p>
+
+<a href="/edit">Edit</a>
+
+<div class="card" style="width: 22rem;" style="height: 500px;">
+    <form method="POST" action="/edit">
+        <div class="card-body">
+            <h5 class="card-title"><strong> Edit </strong></h5>
+            <label for="username">Username</label>
+            <input type="text" name="username" required value={{user1}}>
+        <br>
+        <br>
+            <label for="email">Email</label>
+            <input type="email" name="Email" required placeholder="Add email">
+        {{!-- <br>
+            <label for="Password">Password</label>
+            <input type="password" name="password" required placeholder="Password">
+        <br> --}}
+        <br>
+        <br>
+            <button class="btn btn-primary"> Edit </button>
+    
+        <br>
+        <br>
+            {{!-- <span>Already have an account? <a href="/login">Login</a></span> --}}
+        </div>
+    </form>
+</div>
